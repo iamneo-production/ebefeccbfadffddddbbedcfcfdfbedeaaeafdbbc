@@ -5,7 +5,7 @@ import Card from "./components/UI/Card/Card";
 import React from 'React';
 function App() {
 
-  var qCard;
+  var qCards;
   var startBtn;
   var resultBtn;
 

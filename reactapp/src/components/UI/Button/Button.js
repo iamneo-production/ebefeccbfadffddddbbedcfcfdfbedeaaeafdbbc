@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React from 'React'
 
 const Button = ({children, onClick, disabled}) => {
   return (
