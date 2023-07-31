@@ -7,7 +7,6 @@ function App() {
 
   var qCards;
   var startBtn;
-  var resultBtn;
 
   const questionData = [
     {
