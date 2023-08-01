@@ -51,29 +51,29 @@ function App() {
     },
     {
       key:4,
-      question:'Who is the father of the nation ?',
+      question:'What color is the sky ?',
       //correctAnswerMarkUpdate,
       //attempt,
       options : {
-        option1: 'Mahatma Gandhi',
-        option2: 'Jawaharlal Nehru',
-        option3: 'Donald Trump',
-        option4: 'Barrack Obama'
+        option1: 'Blue',
+        option2: 'Red',
+        option3: 'Yellow',
+        option4: 'Green'
       },
-      answer : 'Mahatma Gandhi'
+      answer : 'Blue'
     },
     {
       key:5,
-      question:'Who is the father of the nation ?',
+      question:'What color is the fire ?',
       //correctAnswerMarkUpdate,
       //attempt,
       options : {
-        option1: 'Mahatma Gandhi',
-        option2: 'Jawaharlal Nehru',
-        option3: 'Donald Trump',
-        option4: 'Barrack Obama'
+        option1: 'Blue',
+        option2: 'Red',
+        option3: 'Yellow',
+        option4: 'Green'
       },
-      answer : 'Mahatma Gandhi'
+      answer : 'Red'
     },
 
   ]
