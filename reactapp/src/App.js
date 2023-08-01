@@ -2,12 +2,12 @@ import { useState } from 'react';
 import './App.css';
 import Button from "./components/UI/Button/Button";
 import Card from "./components/UI/Card/Card";
-import React from 'React';
+import React from 'react';
 function App() {
 
   var qCards;
   var startBtn;
-   var resultBtn;
+  var resultBtn;
 
   const questionData = [
     {
@@ -38,42 +38,42 @@ function App() {
     },
     {
       key:3,
-      question:'What color is the sky ?',
+      question:'Who is the father of the nation ?',
       //correctAnswerMarkUpdate,
       //attempt,
       options : {
-        option1 : "Blue",
-        option2 : "Red",
-        option3 : "Yellow",
-        option4 : "Green",
+        option1: 'Mahatma Gandhi',
+        option2: 'Jawaharlal Nehru',
+        option3: 'Donald Trump',
+        option4: 'Barrack Obama'
       },
-      answer : 'Blue'
+      answer : 'Mahatma Gandhi'
     },
     {
       key:4,
-      question:'What color is the sky ?',
+      question:'Who is the father of the nation ?',
       //correctAnswerMarkUpdate,
       //attempt,
       options : {
-        option1 : "Blue",
-        option2 : "Red",
-        option3 : "Yellow",
-        option4 : "Green",
+        option1: 'Mahatma Gandhi',
+        option2: 'Jawaharlal Nehru',
+        option3: 'Donald Trump',
+        option4: 'Barrack Obama'
       },
-      answer : 'Blue'
+      answer : 'Mahatma Gandhi'
     },
     {
       key:5,
-      question:'What color is the fire ?',
+      question:'Who is the father of the nation ?',
       //correctAnswerMarkUpdate,
       //attempt,
       options : {
-        option1 : "Blue",
-        option2 : "Red",
-        option3 : "Yellow",
-        option4 : "Green",
+        option1: 'Mahatma Gandhi',
+        option2: 'Jawaharlal Nehru',
+        option3: 'Donald Trump',
+        option4: 'Barrack Obama'
       },
-      answer : 'Red'
+      answer : 'Mahatma Gandhi'
     },
 
   ]
