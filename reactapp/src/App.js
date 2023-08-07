@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 import "./App.css";
 import Banner from "./components/UI/Banner/Banner";
+
 import Button from "./components/UI/Button/Button";
 import Card from "./components/UI/Card/Card";
 import questions from "./Data/data";
@@ -13,12 +15,12 @@ function App() {
   const startTest = () => {
     setQuestionsCorrect(0);
     setStart(true);
-    setEnd(false); // Make sure 'end' is reset when starting the quiz
   };
 
   function func(correct) {
     if (correct === true) {
-      setQuestionsCorrect((prev) => prev + 1); // Use the function form to ensure correct state updates
+      setQuestionsCorrect(questionsCorrect + 1);
+      console.log("questionsCorrect: " + questionsCorrect);
     }
   }
 
@@ -28,13 +30,13 @@ function App() {
   }
 
   return (
-    <div className="app" data-testid="app-container">
+    <div className="app">
       <h1>Quizz App</h1>
 
       {start ? (
         <div className="container">
           <div className="card-container">
-            {questions.slice(0, 2).map(
+            {questions.map(
               ({
                 questionId,
                 question,
@@ -43,64 +45,33 @@ function App() {
                 option3,
                 option4,
                 answer,
-              }) => (
-                <Card
-                  key={questionId}
-                  question={question}
-                  correctAnswerMarkUpdate={func}
-                  attempt={func}
-                  options={{
-                    option1: option1,
-                    option2: option2,
-                    option3: option3,
-                    option4: option4,
-                  }}
-                  answer={answer}
-                />
-              )
+              }) => {
+                return (
+                  <Card
+                    key={questionId}
+                    question={question}
+                    correctAnswerMarkUpdate={func}
+                    attempt={func}
+                    options={{
+                      option1: option1,
+                      option2: option2,
+                      option3: option3,
+                      option4: option4,
+                    }}
+                    answer={answer}
+                  />
+                );
+              }
             )}
           </div>
-          <div className="card-container">
-            {questions.slice(2, 5).map(
-              ({
-                questionId,
-                question,
-                option1,
-                option2,
-                option3,
-                option4,
-                answer,
-              }) => (
-                <Card
-                  key={questionId}
-                  question={question}
-                  correctAnswerMarkUpdate={func}
-                  attempt={func}
-                  options={{
-                    option1: option1,
-                    option2: option2,
-                    option3: option3,
-                    option4: option4,
-                  }}
-                  answer={answer}
-                />
-              )
-            )}
-          </div>
-          <Button onClick={showResults} data-testid="show-results-btn">
-            {"Show results"}
-          </Button>
+          <Button onClick={showResults}>{"Show results"}</Button>
         </div>
       ) : (
         <div className="end">
           {end && (
-            <Banner data-testid="result-banner">
-              You have answered {questionsCorrect} / {questions.length} Correctly
-            </Banner>
+            <Banner>You have answered {questionsCorrect} / 5 Correctly</Banner>
           )}
-          <Button onClick={startTest} data-testid="start-quiz-btn">
-            {"Start Quiz"}
-          </Button>
+          <Button onClick={startTest}>{"Start Quiz"}</Button>
         </div>
       )}
     </div>
