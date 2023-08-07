@@ -1,6 +1,3 @@
-App.js
-
-
 import { useState } from 'react';
 import './App.css';
 import Button from "./components/UI/Button/Button";
