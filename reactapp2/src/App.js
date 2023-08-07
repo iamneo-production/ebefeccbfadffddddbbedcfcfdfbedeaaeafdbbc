@@ -34,7 +34,35 @@ function App() {
       {start ? (
         <div className="container">
           <div className="card-container">
-            {questions.map(
+            {questions.slice(0, 2).map(
+              ({
+                questionId,
+                question,
+                option1,
+                option2,
+                option3,
+                option4,
+                answer,
+              }) => (
+                <Card
+                  key={questionId}
+                  question={question}
+                  correctAnswerMarkUpdate={func}
+                  attempt={func}
+                  options={{
+                    option1: option1,
+                    option2: option2,
+                    option3: option3,
+                    option4: option4,
+                  }}
+                  answer={answer}
+                />
+              )
+            )}
+          </div>
+          <div className="row">
+            {/* Render questions 3, 4, and 5 in separate cards */}
+            {questions.slice(2, 5).map(
               ({
                 questionId,
                 question,
