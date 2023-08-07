@@ -60,8 +60,7 @@ function App() {
               )
             )}
           </div>
-          <div className="row">
-            {/* Render questions 3, 4, and 5 in separate cards */}
+          <div className="card-container">
             {questions.slice(2, 5).map(
               ({
                 questionId,
