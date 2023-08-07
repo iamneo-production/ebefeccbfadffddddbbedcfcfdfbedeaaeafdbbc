@@ -1,6 +1,8 @@
 import { useState } from "react";
+
 import "./App.css";
 import Banner from "./components/UI/Banner/Banner";
+
 import Button from "./components/UI/Button/Button";
 import Card from "./components/UI/Card/Card";
 import questions from "./Data/data";
@@ -17,7 +19,8 @@ function App() {
 
   function func(correct) {
     if (correct === true) {
-      setQuestionsCorrect((prevCount) => prevCount + 1);
+      setQuestionsCorrect(questionsCorrect + 1);
+      console.log("questionsCorrect: " + questionsCorrect);
     }
   }
 
@@ -31,38 +34,9 @@ function App() {
       <h1>Quizz App</h1>
 
       {start ? (
-        <>
-          <div className="row">
-            {questions.slice(0, 2).map(
-              ({
-                questionId,
-                question,
-                option1,
-                option2,
-                option3,
-                option4,
-                answer,
-              }) => {
-                return (
-                  <Card
-                    key={questionId}
-                    question={question}
-                    correctAnswerMarkUpdate={func}
-                    attempt={func}
-                    options={{
-                      option1: option1,
-                      option2: option2,
-                      option3: option3,
-                      option4: option4,
-                    }}
-                    answer={answer}
-                  />
-                );
-              }
-            )}
-          </div>
-          <div className="row">
-            {questions.slice(2, 5).map(
+        <div className="container">
+          <div className="card-container">
+            {questions.map(
               ({
                 questionId,
                 question,
@@ -91,7 +65,7 @@ function App() {
             )}
           </div>
           <Button onClick={showResults}>{"Show results"}</Button>
-        </>
+        </div>
       ) : (
         <div className="end">
           {end && (
