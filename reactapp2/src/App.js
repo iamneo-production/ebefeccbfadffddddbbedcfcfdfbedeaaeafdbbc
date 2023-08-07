@@ -1,8 +1,6 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import "./App.css";
 import Banner from "./components/UI/Banner/Banner";
-
 import Button from "./components/UI/Button/Button";
 import Card from "./components/UI/Card/Card";
 import questions from "./Data/data";
@@ -15,12 +13,12 @@ function App() {
   const startTest = () => {
     setQuestionsCorrect(0);
     setStart(true);
+    setEnd(false); // Make sure 'end' is reset when starting the quiz
   };
 
   function func(correct) {
     if (correct === true) {
-      setQuestionsCorrect(questionsCorrect + 1);
-      console.log("questionsCorrect: " + questionsCorrect);
+      setQuestionsCorrect((prev) => prev + 1); // Use the function form to ensure correct state updates
     }
   }
 
@@ -30,7 +28,7 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app" data-testid="app-container">
       <h1>Quizz App</h1>
 
       {start ? (
@@ -45,33 +43,37 @@ function App() {
                 option3,
                 option4,
                 answer,
-              }) => {
-                return (
-                  <Card
-                    key={questionId}
-                    question={question}
-                    correctAnswerMarkUpdate={func}
-                    attempt={func}
-                    options={{
-                      option1: option1,
-                      option2: option2,
-                      option3: option3,
-                      option4: option4,
-                    }}
-                    answer={answer}
-                  />
-                );
-              }
+              }) => (
+                <Card
+                  key={questionId}
+                  question={question}
+                  correctAnswerMarkUpdate={func}
+                  attempt={func}
+                  options={{
+                    option1: option1,
+                    option2: option2,
+                    option3: option3,
+                    option4: option4,
+                  }}
+                  answer={answer}
+                />
+              )
             )}
           </div>
-          <Button onClick={showResults}>{"Show results"}</Button>
+          <Button onClick={showResults} data-testid="show-results-btn">
+            {"Show results"}
+          </Button>
         </div>
       ) : (
         <div className="end">
           {end && (
-            <Banner>You have answered {questionsCorrect} / 5 Correctly</Banner>
+            <Banner data-testid="result-banner">
+              You have answered {questionsCorrect} / {questions.length} Correctly
+            </Banner>
           )}
-          <Button onClick={startTest}>{"Start Quiz"}</Button>
+          <Button onClick={startTest} data-testid="start-quiz-btn">
+            {"Start Quiz"}
+          </Button>
         </div>
       )}
     </div>
