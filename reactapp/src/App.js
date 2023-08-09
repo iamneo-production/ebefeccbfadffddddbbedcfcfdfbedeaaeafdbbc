@@ -64,7 +64,7 @@ function App() {
               }
             )}
           </div>
-          <Button onClick={showResults}>{"Show results"}</Button>
+          <Button onClick={showResults}>{"Show Results"}</Button>
         </div>
       ) : (
         <div className="end">
