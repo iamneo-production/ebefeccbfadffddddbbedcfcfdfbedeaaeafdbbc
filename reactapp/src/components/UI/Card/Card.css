@@ -1,5 +1,7 @@
-const Button = (props) => {
-    return <button onClick={props.handler} disabled={props.disabledState} value={props.value}>{props.children}</button>;
-};
+.card {
+    background-color: #6d005b;
+}
 
-export default Button;
+h4 {
+    color: aqua;
+}
