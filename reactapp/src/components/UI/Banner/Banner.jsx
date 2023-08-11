@@ -1,7 +1,5 @@
-import React from "react";
-
 const Banner = (props) => {
-  return <div className="banner">{props.children}</div>;
+  return <div>You have answered {props.correct} / 5  Correctly</div>;
 };
 
 export default Banner;
